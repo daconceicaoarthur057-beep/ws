@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d16">
+  <meta name="description" content="Treinos e acompanhamento personalizado com Wytajara Santos. Escolha seu plano online ou presencial.">
+  <title>Wytajara Santos | Personal Trainer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080d16;
+      --surface: #101a2a;
+      --surface-light: #17243a;
+      --text: #f3f6fb;
+      --muted: #a6b3c7;
+      --accent: #58a6ff;
+      --accent-dark: #3689eb;
+      --line: rgba(222, 234, 255, .13);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+
+    .topbar {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.03em; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border: 1px solid rgba(88, 166, 255, .58); border-radius: 50%;
+      color: var(--accent); font-family: var(--serif); font-size: 25px; font-style: italic;
+    }
+    .brand small { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; }
+    .nav { display: flex; gap: 32px; align-items: center; color: #d5d8ce; font-size: 13px; }
+    .nav a:hover { color: var(--accent); }
+    .nav-cta { padding: 11px 17px; border: 1px solid var(--line); border-radius: 30px; }
+
+    .hero { position: relative; min-height: 530px; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 40px; padding: 64px 0 76px; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; width: 520px; height: 520px; right: 0; top: 30px; border-radius: 50%; background: radial-gradient(circle, rgba(55, 132, 231, .2), transparent 68%); pointer-events: none; }
+    .hero-copy { position: relative; z-index: 1; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: .2em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--accent); }
+    h1 { max-width: 620px; margin: 22px 0 18px; font-family: var(--serif); font-size: clamp(48px, 6.4vw, 82px); font-weight: 400; line-height: .99; letter-spacing: -.045em; }
+    h1 em { color: var(--accent); font-weight: 400; }
+    .hero-copy > p { max-width: 465px; color: var(--muted); font-size: 15px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 3px; font-size: 12px; font-weight: 800; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--accent); color: #15190f; }
+    .button-primary:hover { background: var(--accent-dark); }
+    .button-quiet { border: 1px solid var(--line); color: var(--text); }
+    .hero-art { position: relative; z-index: 1; min-height: 365px; display: grid; place-items: center; }
+    .orbit { position: absolute; width: min(360px, 85%); aspect-ratio: 1; border: 1px solid rgba(88,166,255,.22); border-radius: 50%; }
+    .orbit::before, .orbit::after { content: ""; position: absolute; border: 1px solid rgba(88,166,255,.12); border-radius: 50%; inset: 20px; }
+    .orbit::after { inset: 43px; }
+    .hero-monogram { position: relative; display: grid; place-items: center; width: 215px; height: 215px; border-radius: 50%; background: linear-gradient(145deg, #1a2d48, #0b1220); box-shadow: 0 25px 90px rgba(0,0,0,.34), inset 0 0 0 1px rgba(88,166,255,.32); color: var(--accent); font: italic 150px/.8 var(--serif); }
+    .hero-monogram::after { content: "WYT A J A R A  S A N T O S"; position: absolute; bottom: 31px; color: #c5d3e7; font: 700 8px var(--sans); letter-spacing: .22em; }
+
+    .trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 21px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: #c6d2e4; font-size: 11px; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+    .trust-row span + span { border-left: 1px solid var(--line); }
+
+    section { scroll-margin-top: 30px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 30px; }
+    .section-heading h2 { margin: 12px 0 0; font: 400 clamp(34px, 4.4vw, 52px)/1.05 var(--serif); letter-spacing: -.035em; }
+    .section-heading p { max-width: 365px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .plans { padding: 96px 0 100px; }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .price-card { position: relative; display: flex; flex-direction: column; min-height: 294px; padding: 25px; border: 1px solid var(--line); background: var(--surface); transition: border-color .2s, transform .2s; }
+    .price-card:hover { transform: translateY(-4px); border-color: rgba(88,166,255,.6); }
+    .price-card.featured { border-color: var(--line); background: var(--surface); }
+    .tag { position: absolute; top: 17px; right: 17px; padding: 6px 8px; background: rgba(88,166,255,.14); color: var(--accent); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .plan-type { margin: 0 0 13px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+    .price-card h3 { margin: 0; font: 400 25px/1.15 var(--serif); }
+    .price { margin: 20px 0 3px; font-size: 36px; font-weight: 750; letter-spacing: -.06em; }
+    .price small { font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--muted); }
+    .period { margin: 0; color: var(--muted); font-size: 11px; }
+    .card-note { margin: 20px 0 24px; color: #c2cede; font-size: 12px; line-height: 1.65; }
+    .price-card .button { width: 100%; margin-top: auto; }
+    .price-card .button-quiet { border-color: var(--accent); background: var(--accent); color: #080d16; }
+    .price-card .button-quiet:hover { background: var(--accent-dark); }
+    .info-strip { margin-top: 17px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+
+    .gallery { padding: 76px 0 90px; border-top: 1px solid var(--line); background: #0c1421; }
+    .gallery-content { display: grid; grid-template-columns: .72fr 1.28fr; gap: 46px; align-items: start; }
+    .gallery-copy h2 { margin: 13px 0; font: 400 clamp(35px, 4vw, 48px)/1.04 var(--serif); letter-spacing: -.035em; }
+    .gallery-copy p { max-width: 355px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .gallery-item { position: relative; min-height: 180px; overflow: hidden; background: var(--surface-light); }
+    .gallery-item:first-child { grid-column: span 2; grid-row: span 2; min-height: 370px; }
+    .gallery-item img { display: block; width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; }
+    .gallery-item img { cursor: zoom-in; transition: transform .4s; }
+    .gallery-item:hover img { transform: scale(1.035); }
+    .gallery-empty { height: 100%; min-height: inherit; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; padding: 20px; color: #93a2b8; text-align: center; font-size: 11px; }
+    .gallery-empty span { color: var(--accent); font-size: 25px; }
+    .remove-photo { position: absolute; z-index: 2; top: 8px; right: 8px; display: grid; place-items: center; width: 30px; height: 30px; border: 0; border-radius: 50%; background: rgba(14,16,13,.8); color: white; cursor: pointer; font-size: 17px; }
+    .remove-photo:hover { background: #a83a36; }
+
+    .about { padding: 78px 0; }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 38px; border: 1px solid var(--line); background: var(--surface); }
+    .about-inner h2 { margin: 13px 0; font: 400 42px/1.05 var(--serif); }
+    .about-inner p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .about-detail { padding-left: 25px; border-left: 1px solid rgba(88,166,255,.5); }
+    .about-detail strong { display: block; margin-bottom: 9px; color: var(--accent); font: 400 23px var(--serif); }
+    .footer { border-top: 1px solid var(--line); }
+    .footer-inner { min-height: 95px; display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--muted); font-size: 11px; }
+    .footer-inner a { color: var(--accent); }
+    .lightbox { position: fixed; z-index: 5; inset: 0; display: none; place-items: center; padding: 30px; background: rgba(7,8,6,.93); cursor: zoom-out; }
+    .lightbox.open { display: grid; }
+    .lightbox img { max-width: min(100%, 1100px); max-height: 88vh; object-fit: contain; }
+    .lightbox button { position: absolute; top: 20px; right: 25px; border: 0; background: none; color: white; cursor: pointer; font-size: 34px; }
+
+    @media (max-width: 850px) {
+      .hero { min-height: unset; grid-template-columns: 1fr .75fr; gap: 10px; padding: 62px 0; }
+      .hero-monogram { width: 175px; height: 175px; font-size: 125px; }
+      .hero-monogram::after { bottom: 25px; font-size: 7px; }
+      .price-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-content { grid-template-columns: 1fr; gap: 30px; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 34px, 480px); }
+      .topbar { height: 70px; }
+      .nav { gap: 0; }
+      .nav a:not(.nav-cta) { display: none; }
+      .nav-cta { padding: 10px 12px; font-size: 11px; }
+      .hero { display: block; padding: 59px 0 40px; }
+      h1 { font-size: clamp(51px, 14vw, 72px); }
+      .hero-copy > p { font-size: 14px; }
+      .hero-art { min-height: 255px; margin-top: 8px; }
+      .orbit { width: 238px; }
+      .hero-monogram { width: 148px; height: 148px; font-size: 105px; }
+      .hero-monogram::after { bottom: 21px; font-size: 6px; }
+      .floating-note { right: 1px; bottom: 14px; }
+      .trust-row { gap: 8px; font-size: 9px; letter-spacing: .05em; }
+      .plans { padding: 69px 0; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 15px; }
+      .price-grid { grid-template-columns: 1fr; }
+      .price-card { min-height: 275px; }
+      .gallery { padding: 60px 0; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item { min-height: 140px; }
+      .gallery-item:first-child { min-height: 290px; }
+      .about { padding: 55px 0; }
+      .about-inner { grid-template-columns: 1fr; gap: 22px; padding: 25px; }
+      .about-inner h2 { font-size: 36px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; justify-content: center; padding: 20px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#inicio" aria-label="Wytajara Santos, início">
+      <span class="brand-mark" aria-hidden="true">W</span>
+      <span>Wytajara Santos<small>Personal Trainer</small></span>
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#planos">Planos</a>
+      <a href="#fotos">Galeria</a>
+      <a class="nav-cta" href="#planos">Escolha seu plano ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow">Seu próximo nível começa aqui</span>
+        <h1>Mais força.<br>Mais <em>você.</em></h1>
+        <p>Treino pensado para a sua rotina, seus objetivos e o seu ritmo. Acompanhamento online ou presencial com Wytajara Santos.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#planos">Conheça os planos <span aria-hidden="true">↘</span></a>
+          <a class="button button-quiet" href="#fotos">Ver galeria</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Logotipo W de Wytajara Santos">
+        <div class="orbit" aria-hidden="true"></div>
+        <div class="hero-monogram" aria-hidden="true">W</div>
+      </div>
+    </section>
+
+    <div class="wrap trust-row" aria-label="Modalidades de atendimento">
+      <span>Treino personalizado</span><span>Online e presencial</span><span>Seu ritmo, seu progresso</span>
+    </div>
+
+    <section class="wrap plans" id="planos">
+      <div class="section-heading">
+        <div><span class="eyebrow">Escolha seu caminho</span><h2>Planos e valores</h2></div>
+        <p>Encontre o acompanhamento ideal para você e fale comigo direto pelo WhatsApp.</p>
+      </div>
+      <div class="price-grid">
+        <article class="price-card">
+          <p class="plan-type">Online · Treino</p><h3>Treino mensal</h3>
+          <p class="price">R$ 300</p><p class="period">por mês</p>
+          <p class="card-note">Treino personalizado para fazer onde e quando quiser.</p>
+          <a class="button button-quiet whatsapp-link" data-plan="Treino mensal online — R$ 300" href="#">Quero este plano <span>↗</span></a>
+        </article>
+        <article class="price-card featured">
+          <p class="plan-type">Online · Treino + dieta</p><h3>Plano de 4 meses</h3>
+          <p class="price">R$ 500</p><p class="period">plano de 4 meses</p>
+          <p class="card-note">Treino e dieta para acompanhar sua jornada por quatro meses.</p>
+          <a class="button button-quiet whatsapp-link" data-plan="Treino e dieta online — 4 meses — R$ 500" href="#">Quero este plano <span>↗</span></a>
+        </article>
+        <article class="price-card">
+          <p class="plan-type">Online · Treino + dieta</p><h3>Plano de 6 meses</h3>
+          <p class="price">R$ 650</p><p class="period">plano de 6 meses</p>
+          <p class="card-note">Mais tempo para manter a consistência e evoluir com acompanhamento.</p>
+          <a class="button button-quiet whatsapp-link" data-plan="Treino e dieta online — 6 meses — R$ 650" href="#">Quero este plano <span>↗</span></a>
+        </article>
+        <article class="price-card">
+          <p class="plan-type">Online · Treino</p><h3>Só o treino</h3>
+          <p class="price">R$ 150</p><p class="period">consulte a duração pelo WhatsApp</p>
+          <p class="card-note">Um treino personalizado, feito para os seus objetivos.</p>
+          <a class="button button-quiet whatsapp-link" data-plan="Só o treino online — R$ 150" href="#">Quero este plano <span>↗</span></a>
+        </article>
+        <article class="price-card">
+          <p class="plan-type">Presencial · Treino</p><h3>Treino presencial</h3>
+          <p class="price">R$ 600</p><p class="period">consulte a duração pelo WhatsApp</p>
+          <p class="card-note">Orientação presencial para treinar com acompanhamento de perto.</p>
+          <a class="button button-quiet whatsapp-link" data-plan="Treino presencial — R$ 600" href="#">Quero este plano <span>↗</span></a>
+        </article>
+        <article class="price-card">
+          <p class="plan-type">Presencial · Treino + dieta</p><h3>Acompanhamento completo</h3>
+          <p class="price">R$ 750</p><p class="period">consulte a duração pelo WhatsApp</p>
+          <p class="card-note">Treino presencial e dieta para um acompanhamento completo.</p>
+          <a class="button button-quiet whatsapp-link" data-plan="Treino e dieta presencial — R$ 750" href="#">Quero este plano <span>↗</span></a>
+        </article>
+      </div>
+      <p class="info-strip">Para os planos sem duração indicada, consulte os detalhes pelo WhatsApp.</p>
+    </section>
+
+    <section class="gallery" id="fotos">
+      <div class="wrap gallery-content">
+        <div class="gallery-copy">
+          <span class="eyebrow">Um espaço seu</span>
+          <h2>Compartilhe sua evolução.</h2>
+          <p>Um pouco do meu trabalho e da dedicação em cada treino.</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="wrap about">
+      <div class="about-inner">
+        <div><span class="eyebrow">Wytajara Santos</span><h2>Seu objetivo.<br>Nosso trabalho.</h2></div>
+        <div class="about-detail">
+          <strong>Treino feito para você.</strong>
+          <p>Escolha atendimento online ou presencial e dê o próximo passo com um plano personalizado. Chame no WhatsApp para tirar dúvidas e começar.</p>
+          <a class="button button-primary whatsapp-link" data-plan="Quero saber mais sobre os planos de personal trainer" href="#">Falar no WhatsApp <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">W</span><span>Wytajara Santos<small>Personal Trainer</small></span></a>
+      <span>© <span id="year"></span> Wytajara Santos · Feito para a sua evolução.</span>
+      <a class="whatsapp-link" data-plan="Olá, Wytajara! Gostaria de saber mais sobre os seus planos." href="#">WhatsApp ↗</a>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da foto">
+    <button type="button" aria-label="Fechar foto">×</button>
+    <img alt="Foto ampliada">
+  </div>
+  <script>
+    const whatsappNumber = "5598984661876";
+    document.querySelectorAll(".whatsapp-link").forEach((link) => {
+      const message = `Olá, Wytajara! Tenho interesse no plano: ${link.dataset.plan}. Pode me passar mais informações?`;
+      link.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const gallery = document.getElementById("gallery-grid");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = lightbox.querySelector("img");
+    const galleryItems = [
+      { type: "image", src: "WhatsApp Image 2026-10-17 at 11.32.10 (1).jpeg", name: "Treino personalizado" },
+      { type: "image", src: "WhatsApp Image 2026-10-17 at 11.32.10.jpeg", name: "Treino personalizado" },
+      { type: "image", src: "WhatsApp Image 2026-10-17 at 11.32.11 (1).jpeg", name: "Treino personalizado" },
+      { type: "image", src: "WhatsApp Image 2026-10-17 at 11.32.11 (2).jpeg", name: "Treino personalizado" },
+      { type: "image", src: "WhatsApp Image 2026-10-17 at 11.32.11.jpeg", name: "Treino personalizado" },
+      { type: "image", src: "WhatsApp Image 2026-10-17 at 11.32.12.jpeg", name: "Treino personalizado" }
+    ];
+
+    function renderGallery() {
+      gallery.replaceChildren();
+      const slots = Math.max(3, galleryItems.length);
+      for (let index = 0; index < slots; index += 1) {
+        const item = document.createElement("div");
+        item.className = "gallery-item";
+        const entry = galleryItems[index];
+        if (entry) {
+          const image = document.createElement("img");
+          image.src = entry.src;
+          image.alt = `Foto: ${entry.name}`;
+          image.addEventListener("click", () => {
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightbox.classList.add("open");
+          });
+          item.append(image);
+        } else {
+          const empty = document.createElement("div");
+          empty.className = "gallery-empty";
+          const icon = document.createElement("span");
+          icon.setAttribute("aria-hidden", "true");
+          icon.textContent = "＋";
+          const label = document.createElement("span");
+          label.textContent = "Fotos de treino";
+          empty.append(icon, label);
+          item.append(empty);
+        }
+        gallery.append(item);
+      }
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightboxImage.removeAttribute("src");
+    }
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox || event.target.tagName === "BUTTON") closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLightbox();
+    });
+    renderGallery();
+  </script>
+</body>
+</html>
